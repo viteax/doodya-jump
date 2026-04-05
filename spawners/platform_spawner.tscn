@@ -1,6 +1,14 @@
 [gd_scene format=3 uid="uid://cl1rgrum3i4oo"]
 
 [ext_resource type="Script" uid="uid://rwi7rvwmlk1w" path="res://spawners/platform_spawner.gd" id="1_6o5gc"]
+[ext_resource type="PackedScene" uid="uid://bjgg3uqp0echx" path="res://platforms/platform.tscn" id="2_cim36"]
+[ext_resource type="PackedScene" uid="uid://bxvltks8kjif6" path="res://platforms/moving_platform.tscn" id="3_ayrv3"]
+[ext_resource type="PackedScene" uid="uid://c1ddm523ho6ug" path="res://platforms/breaking_platform.tscn" id="4_aa7y0"]
+[ext_resource type="PackedScene" uid="uid://bpofievqkhx0s" path="res://enemies/static_enemy/static_enemy.tscn" id="5_5v14c"]
 
 [node name="PlatformSpawner" type="Node2D" unique_id=1571345445]
 script = ExtResource("1_6o5gc")
+static_platform = ExtResource("2_cim36")
+moving_platform = ExtResource("3_ayrv3")
+breaking_platform = ExtResource("4_aa7y0")
+enemy_scene = ExtResource("5_5v14c")

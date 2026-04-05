@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 
-const SPEED = 500.0
-const JUMP_VELOCITY = -700.0
+const SPEED = 600.0
+const JUMP_VELOCITY = -750.0
 
 @export var bullet_scene: PackedScene
 
@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	camera.limit_bottom = min(
-		global_position.y + get_viewport_rect().size.y / 2,
+		global_position.y + get_viewport_rect().size.y / 3,
 		camera.limit_bottom,
 	)
 	
