@@ -1,6 +1,9 @@
 extends Node2D
 
-@export var platform_scene: PackedScene
+@export var static_platform: PackedScene
+@export var moving_platform: PackedScene
+@export var breaking_platform: PackedScene
+
 @export var camera: Camera2D
 
 var last_spawn_y: float = 427.0
@@ -27,7 +30,7 @@ func _process(_delta):
 			platform.queue_free()
 
 func spawn_platform():
-	var platform = platform_scene.instantiate()
+	var platform = get_random_platform()
 	
 	var gap = randf_range(min_gap_y, max_gap_y)
 	last_spawn_y -= gap
@@ -37,3 +40,13 @@ func spawn_platform():
 	
 	platform.global_position = Vector2(x, last_spawn_y)
 	add_child(platform)
+
+
+func get_random_platform() -> Node2D:
+	var roll = randf()
+	if roll < 0.7:
+		return static_platform.instantiate()
+	elif roll < 0.9:
+		return moving_platform.instantiate()
+	else:
+		return breaking_platform.instantiate()

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://c1ddm523ho6ug"]
+
+[ext_resource type="Script" uid="uid://oft26amhs487" path="res://platforms/breaking_platform.gd" id="1_v6etd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqjc"]
+size = Vector2(112, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6etd"]
+size = Vector2(112, 11)
+
+[node name="BreakingPlatform" type="StaticBody2D" unique_id=422080741]
+script = ExtResource("1_v6etd")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1147145556]
+offset_left = -56.0
+offset_top = -10.0
+offset_right = 56.0
+offset_bottom = 10.0
+color = Color(0.8015778, 0.17774409, 0.350037, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=326904131]
+shape = SubResource("RectangleShape2D_vkqjc")
+one_way_collision = true
+
+[node name="Area2D" type="Area2D" parent="." unique_id=2098575956]
+position = Vector2(0, -6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1974404005]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_v6etd")
+
+[node name="Timer" type="Timer" parent="." unique_id=1624664918]
