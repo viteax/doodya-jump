@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://e5pqftmqsw05"]
+
+[ext_resource type="Script" uid="uid://djjtkoxtofv2a" path="res://enemies/flying_enemy/flying_enemy.gd" id="1_pamv6"]
+[ext_resource type="PackedScene" uid="uid://dif8jn0k68vod" path="res://enemies/flying_enemy/bullet.tscn" id="2_a7xgc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0202s"]
+size = Vector2(76, 76)
+
+[node name="FlyingEnemy" type="CharacterBody2D" unique_id=624594369]
+collision_layer = 2
+collision_mask = 0
+script = ExtResource("1_pamv6")
+bullet_scene = ExtResource("2_a7xgc")
+
+[node name="ShootTimer" type="Timer" parent="." unique_id=181587942]
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=107664178]
+position = Vector2(0, 52)
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=635223565]
+offset_left = -38.0
+offset_top = -38.0
+offset_right = 38.0
+offset_bottom = 38.0
+color = Color(0.47425056, 0.8353225, 0.13623595, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=927054417]
+shape = SubResource("RectangleShape2D_0202s")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1759893168]
+position = Vector2(0, -28)
