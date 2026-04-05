@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cq5siw56ic7oj"]
+
+[ext_resource type="Script" uid="uid://bgo7gbu11cu10" path="res://spawners/gear_spawner.gd" id="1_7mxdq"]
+[ext_resource type="PackedScene" uid="uid://5dw1e2nmkoe6" path="res://gear/gear.tscn" id="2_wtdlu"]
+
+[node name="GearSpawner" type="Node2D" unique_id=1571345445]
+script = ExtResource("1_7mxdq")
+gear_scene = ExtResource("2_wtdlu")
