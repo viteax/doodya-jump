@@ -4,20 +4,22 @@
 [ext_resource type="PackedScene" uid="uid://dif8jn0k68vod" path="res://enemies/flying_enemy/bullet.tscn" id="2_rkbax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqu6x"]
+size = Vector2(84, 114)
 
 [node name="Player" type="CharacterBody2D" unique_id=1483079905 groups=["player"]]
-collision_layer = 3
+collision_layer = 2
 script = ExtResource("1_oul6g")
 bullet_scene = ExtResource("2_rkbax")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=162509553]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
+offset_left = -42.0
+offset_top = -57.0
+offset_right = 42.0
+offset_bottom = 57.0
+color = Color(0.23879135, 0.5704557, 0.77785325, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=11080109]
 shape = SubResource("RectangleShape2D_kqu6x")
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=2060485720]
-position = Vector2(0, -31)
+position = Vector2(0, -105)

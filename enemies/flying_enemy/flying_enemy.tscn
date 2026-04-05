@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://5dw1e2nmkoe6" path="res://gear/gear.tscn" id="3_r0hab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0202s"]
-size = Vector2(76, 76)
+size = Vector2(130, 130)
 
 [node name="FlyingEnemy" type="CharacterBody2D" unique_id=624594369]
 collision_layer = 2
@@ -17,17 +17,18 @@ gear_scene = ExtResource("3_r0hab")
 [node name="ShootTimer" type="Timer" parent="." unique_id=181587942]
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=107664178]
-position = Vector2(0, 52)
+position = Vector2(0, 88.16)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=635223565]
-offset_left = -38.0
-offset_top = -38.0
-offset_right = 38.0
-offset_bottom = 38.0
+offset_left = -65.0
+offset_top = -65.0
+offset_right = 65.0
+offset_bottom = 65.0
 color = Color(0.47425056, 0.8353225, 0.13623595, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=927054417]
 shape = SubResource("RectangleShape2D_0202s")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1759893168]
-position = Vector2(0, -28)
+position = Vector2(2, -60)
+rect = Rect2(-67, -5, 130, 8)
