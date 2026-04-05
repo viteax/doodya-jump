@@ -2,8 +2,9 @@ extends CharacterBody2D
 
 
 const SPEED = 500.0
-const JUMP_VELOCITY = -800.0
+const JUMP_VELOCITY = -700.0
 
+@onready var camera: Camera2D = $Camera2D
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -13,6 +14,11 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	if is_on_floor():
 		velocity.y = JUMP_VELOCITY
+
+	camera.limit_bottom = min(
+		global_position.y + get_viewport_rect().size.y / 2,
+		camera.limit_bottom,
+	)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
