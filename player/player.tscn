@@ -5,6 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqu6x"]
 
 [node name="Player" type="CharacterBody2D" unique_id=1483079905]
+collision_layer = 3
 script = ExtResource("1_oul6g")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=162509553]
