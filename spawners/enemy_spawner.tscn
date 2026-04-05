@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bbxvp7remauki"]
+
+[ext_resource type="Script" uid="uid://8l04urctdtvx" path="res://spawners/enemy_spawner.gd" id="1_wcm8v"]
+[ext_resource type="PackedScene" uid="uid://e5pqftmqsw05" path="res://enemies/flying_enemy/flying_enemy.tscn" id="2_mx8xc"]
+
+[node name="EnemySpawner" type="Node2D" unique_id=362603104]
+script = ExtResource("1_wcm8v")
+enemy_scenes = Array[PackedScene]([ExtResource("2_mx8xc")])
+
+[node name="Timer" type="Timer" parent="." unique_id=979962257]
