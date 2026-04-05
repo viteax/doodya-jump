@@ -19,6 +19,10 @@ func _physics_process(delta: float) -> void:
 		global_position.y + get_viewport_rect().size.y / 2,
 		camera.limit_bottom,
 	)
+	
+	if camera.limit_bottom < global_position.y:
+		get_tree().reload_current_scene()
+		return
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
