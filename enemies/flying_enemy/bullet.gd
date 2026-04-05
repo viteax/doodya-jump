@@ -2,10 +2,13 @@ extends Area2D
 
 @export var speed: float = 200.0
 
+@onready var notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
+
 func _ready():
 	var lifetime_timer = get_tree().create_timer(5.0)
 	lifetime_timer.timeout.connect(queue_free)
 	body_entered.connect(_on_body_entered)
+	notifier.screen_exited.connect(queue_free)
 
 func _draw():
 	draw_circle(Vector2.ZERO, 15, Color.RED)
@@ -14,6 +17,5 @@ func _physics_process(delta):
 	position.y += speed * delta
 
 func _on_body_entered(body):
-	if body.has_method("take_damage"):
-		body.take_damage(1)
-	queue_free()
+	get_tree().reload_current_scene.call_deferred()
+	return
