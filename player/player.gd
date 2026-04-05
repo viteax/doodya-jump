@@ -4,7 +4,21 @@ extends CharacterBody2D
 const SPEED = 500.0
 const JUMP_VELOCITY = -700.0
 
+@export var bullet_scene: PackedScene
+
 @onready var camera: Camera2D = $Camera2D
+
+func _input(event):
+	if event.is_action_pressed("shoot"):
+		_shoot()
+
+func _shoot():
+	var bullet = bullet_scene.instantiate()
+	bullet.global_position = $Marker2D.global_position
+	bullet.direction = Vector2.UP
+	bullet.speed = 800
+	bullet.color = Color.YELLOW
+	get_tree().current_scene.add_child(bullet)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.

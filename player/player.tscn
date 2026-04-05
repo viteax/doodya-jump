@@ -1,12 +1,14 @@
 [gd_scene format=3 uid="uid://ckq636uqv1bot"]
 
 [ext_resource type="Script" uid="uid://ch1gskfdidsb" path="res://player/player.gd" id="1_oul6g"]
+[ext_resource type="PackedScene" uid="uid://dif8jn0k68vod" path="res://enemies/flying_enemy/bullet.tscn" id="2_rkbax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqu6x"]
 
-[node name="Player" type="CharacterBody2D" unique_id=1483079905]
+[node name="Player" type="CharacterBody2D" unique_id=1483079905 groups=["player"]]
 collision_layer = 3
 script = ExtResource("1_oul6g")
+bullet_scene = ExtResource("2_rkbax")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=162509553]
 offset_left = -10.0
@@ -16,3 +18,6 @@ offset_bottom = 10.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=11080109]
 shape = SubResource("RectangleShape2D_kqu6x")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=2060485720]
+position = Vector2(0, -31)
