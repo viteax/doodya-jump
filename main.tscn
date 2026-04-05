@@ -7,6 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://c1ddm523ho6ug" path="res://platforms/breaking_platform.tscn" id="5_lquwl"]
 [ext_resource type="PackedScene" uid="uid://e5pqftmqsw05" path="res://enemies/flying_enemy/flying_enemy.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://bbxvp7remauki" path="res://spawners/enemy_spawner.tscn" id="7_272bh"]
+[ext_resource type="PackedScene" uid="uid://5dw1e2nmkoe6" path="res://gear/gear.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://cq5siw56ic7oj" path="res://spawners/gear_spawner.tscn" id="9_kek77"]
 
 [node name="Main" type="Node2D" unique_id=1239697298]
 
@@ -35,8 +37,11 @@ limit_bottom = 1152
 
 [node name="EnemySpawner" parent="." unique_id=362603104 node_paths=PackedStringArray("camera") instance=ExtResource("7_272bh")]
 position = Vector2(1, 45)
-spawn_interval = 3.0
-min_x = 0.0
-max_x = 200.0
-max_enemies = 5
+camera = NodePath("../Player/Camera2D")
+
+[node name="Gear" parent="." unique_id=442231704 instance=ExtResource("8_5vw27")]
+position = Vector2(274, 217)
+
+[node name="GearSpawner" parent="." unique_id=1093399079 node_paths=PackedStringArray("camera") instance=ExtResource("9_kek77")]
+position = Vector2(46, 241)
 camera = NodePath("../Player/Camera2D")
