@@ -4,6 +4,7 @@ extends CharacterBody2D
 @export var move_range: float = 150.0
 @export var shoot_interval: float = 1.5
 @export var bullet_scene: PackedScene
+@export var gear_scene: PackedScene
 
 var _start_x: float
 var _direction: float = 1.0
@@ -11,6 +12,16 @@ var _direction: float = 1.0
 @onready var shoot_timer: Timer = $ShootTimer
 @onready var marker: Marker2D = $Marker2D
 @onready var notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
+
+
+func die():
+	if gear_scene == null:
+		return
+	var gear = gear_scene.instantiate()
+	gear.global_position = global_position
+	get_tree().current_scene.add_child.call_deferred(gear)
+	queue_free()
+
 
 func _ready():
 	_start_x = global_position.x

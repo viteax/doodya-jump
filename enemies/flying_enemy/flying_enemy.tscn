@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://djjtkoxtofv2a" path="res://enemies/flying_enemy/flying_enemy.gd" id="1_pamv6"]
 [ext_resource type="PackedScene" uid="uid://dif8jn0k68vod" path="res://enemies/flying_enemy/bullet.tscn" id="2_a7xgc"]
+[ext_resource type="PackedScene" uid="uid://5dw1e2nmkoe6" path="res://gear/gear.tscn" id="3_r0hab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0202s"]
 size = Vector2(76, 76)
@@ -11,6 +12,7 @@ collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_pamv6")
 bullet_scene = ExtResource("2_a7xgc")
+gear_scene = ExtResource("3_r0hab")
 
 [node name="ShootTimer" type="Timer" parent="." unique_id=181587942]
 
