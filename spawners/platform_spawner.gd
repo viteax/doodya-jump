@@ -4,11 +4,14 @@ extends Node2D
 @export var moving_platform: PackedScene
 @export var breaking_platform: PackedScene
 
+@export var enemy_scene: PackedScene
+@export var spawn_chance: float = 0.1
+
 @export var camera: Camera2D
 
 var last_spawn_y: float = 427.0
-var min_gap_y: float = 80.0
-var max_gap_y: float = 150.0
+var min_gap_y: float = 70.0
+var max_gap_y: float = 110.0
 var screen_width: float
 
 func _ready():
@@ -40,6 +43,11 @@ func spawn_platform():
 	
 	platform.global_position = Vector2(x, last_spawn_y)
 	add_child(platform)
+	
+	if enemy_scene and randf() < spawn_chance:
+		var enemy = enemy_scene.instantiate()
+		enemy.global_position = platform.global_position + Vector2(0, -30)
+		add_child(enemy)
 
 
 func get_random_platform() -> Node2D:
