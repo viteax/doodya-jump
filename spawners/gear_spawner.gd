@@ -5,15 +5,12 @@ extends Node2D
 @export var camera: Camera2D
 
 var last_spawn_y: float = 427.0
-var min_gap_y: float = 80.0
-var max_gap_y: float = 150.0
+var min_gap_y: float = 150.0
+var max_gap_y: float = 300.0
 var screen_width: float
 
 func _ready():
 	screen_width = get_viewport_rect().size.x
-	# генерируем стартовый набор платформ
-	for i in range(10):
-		spawn_platform()
 
 func _process(_delta):
 	# генерируем новые, когда камера приближается к верхней платформе
