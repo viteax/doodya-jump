@@ -12,11 +12,6 @@ func _ready():
 	body_entered.connect(_on_body_entered)
 	notifier.screen_exited.connect(queue_free)
 
-func _draw():
-	draw_circle(Vector2.ZERO, 15, Color.RED)
-	if color:
-		draw_circle(Vector2.ZERO, 15, color)
-
 func _physics_process(delta):
 	position.y += direction.y * speed * delta
 

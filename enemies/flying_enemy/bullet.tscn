@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dif8jn0k68vod"]
 
 [ext_resource type="Script" uid="uid://c0huq3av54cso" path="res://enemies/flying_enemy/bullet.gd" id="1_bjnpj"]
+[ext_resource type="Texture2D" uid="uid://cieqk0naisgj5" path="res://enemies/bullet.png" id="2_d84qu"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_bjnpj"]
 radius = 15.0
@@ -12,6 +13,12 @@ script = ExtResource("1_bjnpj")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1905584439]
 shape = SubResource("CircleShape2D_bjnpj")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=288733762]
+texture_filter = 1
+position = Vector2(1.4305115e-06, -4.7683716e-07)
+scale = Vector2(2.375, 2.375)
+texture = ExtResource("2_d84qu")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=2101930267]
 position = Vector2(0, -5)

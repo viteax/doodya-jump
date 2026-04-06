@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://b154onwelpqi"]
+
+[ext_resource type="Texture2D" uid="uid://h3qkuyfiojs1" path="res://shop/shop.png" id="1_r2p71"]
+[ext_resource type="Script" uid="uid://cc6eyboipj0wn" path="res://shop/shop.gd" id="1_sxvro"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tgw8c"]
+size = Vector2(48, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ladt2"]
+size = Vector2(48, 64)
+
+[node name="Shop" type="CharacterBody2D" unique_id=1687192053]
+collision_layer = 2
+script = ExtResource("1_sxvro")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=813087120]
+shape = SubResource("RectangleShape2D_tgw8c")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=288790161]
+texture_filter = 1
+position = Vector2(1.4305115e-06, 0)
+scale = Vector2(2.181818, 2.1818182)
+texture = ExtResource("1_r2p71")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=688957623]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1494612611]
+shape = SubResource("RectangleShape2D_ladt2")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1015127647]
+rect = Rect2(-24, -32, 48, 64)

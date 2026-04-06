@@ -1,7 +1,42 @@
 [gd_scene format=3 uid="uid://bxvltks8kjif6"]
 
+[ext_resource type="Script" uid="uid://bhjoynr4pj3mo" path="res://platforms/platform_anim_kickstart.gd" id="1_kcv71"]
+[ext_resource type="Texture2D" uid="uid://c1ldg5yw3l44t" path="res://platforms/platform_moving.png" id="2_5jun7"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbpgk"]
 size = Vector2(112, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kcv71"]
+atlas = ExtResource("2_5jun7")
+region = Rect2(0, 0, 44, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jun7"]
+atlas = ExtResource("2_5jun7")
+region = Rect2(0, 12, 44, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce21s"]
+atlas = ExtResource("2_5jun7")
+region = Rect2(0, 24, 44, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0s20r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kcv71")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jun7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ce21s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5jun7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="Animation" id="Animation_pt0kt"]
 length = 0.001
@@ -45,16 +80,16 @@ _data = {
 
 [node name="MovingPlatform" type="AnimatableBody2D" parent="." unique_id=1963732176]
 
-[node name="ColorRect" type="ColorRect" parent="MovingPlatform" unique_id=1142216095]
-offset_left = -56.0
-offset_top = -10.0
-offset_right = 56.0
-offset_bottom = 10.0
-metadata/_edit_use_anchors_ = true
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="MovingPlatform" unique_id=2064848543]
 shape = SubResource("RectangleShape2D_hbpgk")
 one_way_collision = true
+script = ExtResource("1_kcv71")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MovingPlatform/CollisionShape2D2" unique_id=575895825]
+texture_filter = 1
+position = Vector2(-5.9604645e-08, 0)
+scale = Vector2(2.5416665, 2.5416665)
+sprite_frames = SubResource("SpriteFrames_0s20r")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="MovingPlatform" unique_id=1774480818]
 libraries/ = SubResource("AnimationLibrary_pt0kt")

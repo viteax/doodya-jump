@@ -1,9 +1,43 @@
 [gd_scene format=3 uid="uid://c1ddm523ho6ug"]
 
 [ext_resource type="Script" uid="uid://oft26amhs487" path="res://platforms/breaking_platform.gd" id="1_v6etd"]
+[ext_resource type="Script" uid="uid://bhjoynr4pj3mo" path="res://platforms/platform_anim_kickstart.gd" id="2_o2ld1"]
+[ext_resource type="Texture2D" uid="uid://dardbt58vwfu0" path="res://platforms/platform_rusty.png" id="3_2oqa2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqjc"]
 size = Vector2(112, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2ld1"]
+atlas = ExtResource("3_2oqa2")
+region = Rect2(0, 0, 44, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2oqa2"]
+atlas = ExtResource("3_2oqa2")
+region = Rect2(0, 12, 44, 12)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_65ir7"]
+atlas = ExtResource("3_2oqa2")
+region = Rect2(0, 24, 44, 12)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j03sh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2ld1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2oqa2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_65ir7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2oqa2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6etd"]
 size = Vector2(112, 11)
@@ -11,16 +45,16 @@ size = Vector2(112, 11)
 [node name="BreakingPlatform" type="StaticBody2D" unique_id=422080741]
 script = ExtResource("1_v6etd")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=1147145556]
-offset_left = -56.0
-offset_top = -10.0
-offset_right = 56.0
-offset_bottom = 10.0
-color = Color(0.8015778, 0.17774409, 0.350037, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=326904131]
 shape = SubResource("RectangleShape2D_vkqjc")
 one_way_collision = true
+script = ExtResource("2_o2ld1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=1612523607]
+texture_filter = 1
+position = Vector2(-5.9604645e-08, -1)
+scale = Vector2(2.5416665, 2.5416667)
+sprite_frames = SubResource("SpriteFrames_j03sh")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2098575956]
 position = Vector2(0, -6)

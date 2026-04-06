@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://5dw1e2nmkoe6"]
 
 [ext_resource type="Script" uid="uid://ccehjgplc2pdj" path="res://gear/gear.gd" id="1_i5bj2"]
+[ext_resource type="Texture2D" uid="uid://ha2ld5b70wvt" path="res://gear/gear.png" id="2_aash2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2qohu"]
 radius = 20.024984
@@ -13,11 +14,10 @@ script = ExtResource("1_i5bj2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=492439337]
 shape = SubResource("CircleShape2D_2qohu")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=2096580083]
-offset_left = -14.0
-offset_top = -14.0
-offset_right = 14.0
-offset_bottom = 14.0
-color = Color(0.83788204, 0.46062702, 0, 1)
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1585543541]
+texture_filter = 1
+position = Vector2(-5.9604645e-07, -5.9604645e-07)
+scale = Vector2(2.2499998, 2.2499998)
+texture = ExtResource("2_aash2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

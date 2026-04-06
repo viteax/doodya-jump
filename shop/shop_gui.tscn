@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dkatkh8awqu05"]
+
+[node name="ShopGui" type="Node2D" unique_id=1925322310]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1672132303]
+
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=1714293952]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Panel" unique_id=597825243]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Shop" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=2099137175]
+layout_mode = 2
+
+[node name="GearsLabel" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=879090772]
+layout_mode = 2
+
+[node name="StatusLabel" type="Label" parent="CanvasLayer/Panel/VBoxContainer" unique_id=1629517687]
+layout_mode = 2
