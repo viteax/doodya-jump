@@ -2,27 +2,27 @@
 
 [ext_resource type="Script" uid="uid://bijffk8leuh84" path="res://enemies/static_enemy/static_enemy.gd" id="1_ladt2"]
 [ext_resource type="PackedScene" uid="uid://5dw1e2nmkoe6" path="res://gear/gear.tscn" id="2_m0vhu"]
+[ext_resource type="Texture2D" uid="uid://cr8ai8vlkxpe6" path="res://enemies/static_enemy/static.png" id="3_q1fuu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgw8c"]
-size = Vector2(64, 64)
+size = Vector2(50, 64)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ladt2"]
-size = Vector2(64, 64)
+size = Vector2(50, 64)
 
 [node name="StaticEnemy" type="CharacterBody2D" unique_id=1687192053]
 collision_layer = 2
 script = ExtResource("1_ladt2")
 gear_scene = ExtResource("2_m0vhu")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=607307487]
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 32.0
-offset_bottom = 32.0
-color = Color(1, 0.35904852, 0.7526497, 1)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=813087120]
 shape = SubResource("RectangleShape2D_tgw8c")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1809860074]
+texture_filter = 1
+position = Vector2(1.4305115e-06, 2.861023e-06)
+scale = Vector2(2.181818, 2.181818)
+texture = ExtResource("3_q1fuu")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=688957623]
 collision_layer = 0
@@ -32,4 +32,4 @@ collision_mask = 2
 shape = SubResource("RectangleShape2D_ladt2")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1015127647]
-rect = Rect2(-32, -32, 64, 64)
+rect = Rect2(-25, -32, 50, 64)
