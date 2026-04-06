@@ -22,10 +22,13 @@ func add_gears(amount: int):
 	save_data()
 	
 func remove_gears(amount: int) -> bool:
-	if amount >= gears:
+	load_data()
+	if amount <= gears:
 		gears -= amount
 		save_data()
+		load_data()
 		return true
+	load_data()
 	return false
 
 func save_data():

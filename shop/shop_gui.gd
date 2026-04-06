@@ -1,7 +1,5 @@
 extends CanvasLayer
 
-signal closed
-
 const PRICES = {
 	"gun":    50,
 	"level1": 30,
@@ -20,7 +18,10 @@ const PRICES = {
 @onready var close_button: Button   = $Panel/VBox/CloseButton
 
 func _ready():
+	print("ok")
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	_close()
+	return
 	_refresh()
 	gun_button.pressed.connect(_buy_gun)
 	lvl1_button.pressed.connect(func(): _buy_level(1))
@@ -76,5 +77,4 @@ func _buy_level(lvl: int):
 
 func _close():
 	get_tree().paused = false
-	closed.emit()
 	queue_free()

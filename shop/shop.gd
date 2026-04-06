@@ -1,5 +1,13 @@
 extends CharacterBody2D
 
+const PRICES = {
+	"gun":    50,
+	"level1": 30,
+	"level2": 80,
+	"level3": 150,
+	"level4": 300,
+}
+
 @onready var area_2d: Area2D = $Area2D
 @onready var notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
 
@@ -18,12 +26,12 @@ func _physics_process(delta: float) -> void:
 	
 func _on_body_entered(body):
 	if body.is_in_group("player") and not gui_open:
-			gui_open = true
-			var gui = shop_gui_scene.instantiate()
-			gui.closed.connect(_on_gui_closed)
-			get_tree().current_scene.add_child(gui)
-			get_tree().paused = true
-			
+		gui_open = true
+		if SaveManager.gears >= PRICES["gun"]:
+			SaveManager.GUN1111()
+			SaveManager.remove_gears(PRICES["gun"])
+		queue_free()
+		
+
 func _on_gui_closed():
 	gui_open = false
-			

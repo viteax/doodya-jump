@@ -7,6 +7,9 @@ extends Node2D
 @export var enemy_scene: PackedScene
 @export var spawn_chance: float = 0.1
 
+@export var shop_scene: PackedScene
+@export var shop_spawn_chance: float = 0.1
+
 @export var camera: Camera2D
 
 var last_spawn_y: float = 427.0
@@ -48,6 +51,13 @@ func spawn_platform():
 		var enemy = enemy_scene.instantiate()
 		enemy.global_position = platform.global_position + Vector2(0, -30)
 		add_child(enemy)
+		return
+	
+	if shop_scene and randf() < shop_spawn_chance:
+		var enemy = shop_scene.instantiate()
+		enemy.global_position = platform.global_position + Vector2(0, -30)
+		add_child(enemy)
+		return
 
 
 func get_random_platform() -> Node2D:
