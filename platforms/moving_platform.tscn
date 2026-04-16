@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bxvltks8kjif6"]
 
-[ext_resource type="Script" uid="uid://bhjoynr4pj3mo" path="res://platforms/platform_anim_kickstart.gd" id="1_kcv71"]
+[ext_resource type="Script" path="res://platforms/platform_anim_kickstart.gd" id="1_kcv71"]
 [ext_resource type="Texture2D" uid="uid://c1ldg5yw3l44t" path="res://platforms/platform_moving.png" id="2_5jun7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hbpgk"]

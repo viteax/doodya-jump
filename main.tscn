@@ -8,12 +8,19 @@
 [ext_resource type="PackedScene" uid="uid://bbxvp7remauki" path="res://spawners/enemy_spawner.tscn" id="7_272bh"]
 [ext_resource type="Texture2D" uid="uid://tjpkbuu74j70" path="res://bg.png" id="8_4c57u"]
 [ext_resource type="PackedScene" uid="uid://5dw1e2nmkoe6" path="res://gear/gear.tscn" id="8_5vw27"]
-[ext_resource type="PackedScene" uid="uid://r1l7durcomu3" path="res://spawners/shop_spawner.tscn" id="8_kek77"]
 [ext_resource type="PackedScene" uid="uid://cq5siw56ic7oj" path="res://spawners/gear_spawner.tscn" id="9_kek77"]
+[ext_resource type="PackedScene" path="res://ui/mobile_controls.tscn" id="10_mc"]
+[ext_resource type="PackedScene" path="res://ui/record_line.tscn" id="11_rl"]
+[ext_resource type="PackedScene" uid="uid://brphl5k0ju4kj" path="res://game_over/game_over.tscn" id="12_go"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_7mycd"]
 font = ExtResource("7_5vw27")
 font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_best"]
+font = ExtResource("7_5vw27")
+font_size = 24
+font_color = Color(0.6, 1, 0.6, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_5vw27"]
 font = ExtResource("7_5vw27")
@@ -36,15 +43,19 @@ camera = NodePath("../Player/Camera2D")
 [node name="Platform" parent="." unique_id=1450844310 instance=ExtResource("1_0xm2m")]
 position = Vector2(323, 425)
 
-[node name="Player" parent="." unique_id=1483079905 instance=ExtResource("2_h2yge")]
+[node name="Player" parent="." unique_id=1483079905 node_paths=PackedStringArray("height_label", "gears_label", "best_label") instance=ExtResource("2_h2yge")]
 position = Vector2(322, 218)
+game_over_scene = ExtResource("12_go")
+height_label = NodePath("../CanvasLayer0/HeightLabel")
+gears_label = NodePath("../CanvasLayer0/GearsLabel")
+best_label = NodePath("../CanvasLayer0/BestLabel")
 
 [node name="Camera2D" type="Camera2D" parent="Player" unique_id=262259428]
 position = Vector2(-30, 265)
 process_callback = 0
 limit_left = 0
-limit_right = 648
-limit_bottom = 1152
+limit_right = 900
+limit_bottom = 1600
 
 [node name="EnemySpawner" parent="." unique_id=362603104 node_paths=PackedStringArray("camera") instance=ExtResource("7_272bh")]
 position = Vector2(1, 45)
@@ -67,6 +78,13 @@ offset_bottom = 43.0
 text = "Height: "
 label_settings = SubResource("LabelSettings_7mycd")
 
+[node name="BestLabel" type="Label" parent="CanvasLayer0" unique_id=1657471380]
+offset_left = 20.0
+offset_top = 55.0
+offset_right = 200.0
+offset_bottom = 80.0
+label_settings = SubResource("LabelSettings_best")
+
 [node name="GearsLabel" type="Label" parent="CanvasLayer0" unique_id=1657471379]
 anchors_preset = 1
 anchor_left = 1.0
@@ -81,4 +99,7 @@ text = " Gears"
 label_settings = SubResource("LabelSettings_5vw27")
 horizontal_alignment = 2
 
-[node name="ShopSpawner" parent="." unique_id=1298270018 instance=ExtResource("8_kek77")]
+
+[node name="MobileControls" parent="." unique_id=1825871653 instance=ExtResource("10_mc")]
+
+[node name="RecordLine" parent="." unique_id=1459621364 instance=ExtResource("11_rl")]

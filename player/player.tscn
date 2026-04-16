@@ -4,9 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://dif8jn0k68vod" path="res://enemies/flying_enemy/bullet.tscn" id="2_rkbax"]
 [ext_resource type="Texture2D" uid="uid://dloevnrknwejv" path="res://player/main_body.png" id="3_g1dw6"]
 [ext_resource type="Texture2D" uid="uid://cy7wlyhsabe8c" path="res://player/arms.png" id="4_yw30f"]
+[ext_resource type="AudioStream" uid="uid://8k7hw5m4ogr7" path="res://jump_sound.mp3" id="5_jump"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kqu6x"]
-size = Vector2(70, 95)
+size = Vector2(30, 95)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yw30f"]
 atlas = ExtResource("3_g1dw6")
@@ -49,7 +50,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"body_lvl0_jmp",
-"speed": 12.0
+"speed": 18.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_boad6"]
@@ -93,7 +94,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"jmp",
-"speed": 12.0
+"speed": 18.0
 }]
 
 [node name="Player" type="CharacterBody2D" unique_id=1483079905 groups=["player"]]
@@ -111,8 +112,8 @@ position = Vector2(3.5527137e-15, 0.5)
 scale = Vector2(2.9615386, 2.9615393)
 sprite_frames = SubResource("SpriteFrames_boad6")
 animation = &"body_lvl0_jmp"
-frame = 6
-frame_progress = 0.40897208
+frame = 7
+frame_progress = 0.5892943
 
 [node name="arms_AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D" unique_id=769841006]
 texture_filter = 1
@@ -120,6 +121,12 @@ position = Vector2(0, 0.49999976)
 scale = Vector2(2.9615386, 2.961539)
 sprite_frames = SubResource("SpriteFrames_8t03j")
 animation = &"jmp"
+frame = 5
+frame_progress = 0.29062292
+
+[node name="JumpSound" type="AudioStreamPlayer" parent="." unique_id=1111111111]
+stream = ExtResource("5_jump")
+volume_db = -5.0
 
 [node name="Marker2D" type="Marker2D" parent="." unique_id=2060485720]
 position = Vector2(0, -105)

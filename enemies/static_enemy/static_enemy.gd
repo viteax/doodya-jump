@@ -18,14 +18,8 @@ func _ready():
 	area_2d.body_entered.connect(_on_body_entered)
 	notifier.screen_exited.connect(queue_free)
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-	
-	move_and_slide()
 
 func _on_body_entered(body):
 	if body.is_in_group("player"):
-		get_tree().reload_current_scene.call_deferred()
+		body.die()
 		return

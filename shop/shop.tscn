@@ -2,35 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://h3qkuyfiojs1" path="res://shop/shop.png" id="1_r2p71"]
 [ext_resource type="PackedScene" uid="uid://dkatkh8awqu05" path="res://shop/shop_gui.tscn" id="1_sxvro"]
-
-[sub_resource type="GDScript" id="GDScript_r2p71"]
-script/source = "extends CharacterBody2D
-
-@onready var area_2d: Area2D = $Area2D
-@onready var notifier: VisibleOnScreenNotifier2D = $VisibleOnScreenNotifier2D
-
-@export var shop_gui_scene: PackedScene
-
-var gui_open := false
-
-func _ready():
-	area_2d.body_entered.connect(_on_body_entered)
-	notifier.screen_exited.connect(queue_free)
-	
-func _physics_process(delta: float) -> void:
-	if not is_on_floor():
-		velocity += get_gravity() * delta
-	move_and_slide()
-	
-func _on_body_entered(body):
-	if body.is_in_group(\"player\") and not gui_open:
-		gui_open = true
-		SaveManager.GUN1111()
-		queue_free.call_deferred()
-			
-func _on_gui_closed():
-	gui_open = false
-"
+[ext_resource type="Script" uid="uid://cc6eyboipj0wn" path="res://shop/shop.gd" id="2_shop"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tgw8c"]
 size = Vector2(48, 64)
@@ -40,7 +12,7 @@ size = Vector2(48, 64)
 
 [node name="Shop" type="CharacterBody2D" unique_id=1687192053]
 collision_layer = 0
-script = SubResource("GDScript_r2p71")
+script = ExtResource("2_shop")
 shop_gui_scene = ExtResource("1_sxvro")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=813087120]
@@ -58,6 +30,11 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1494612611]
 shape = SubResource("RectangleShape2D_ladt2")
+
+[node name="HintLabel" type="Label" parent="." unique_id=1015127648]
+position = Vector2(-40, -80)
+text = "[ SPACE ]"
+visible = false
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1015127647]
 rect = Rect2(-24, -32, 48, 64)

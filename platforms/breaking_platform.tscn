@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c1ddm523ho6ug"]
 
 [ext_resource type="Script" uid="uid://oft26amhs487" path="res://platforms/breaking_platform.gd" id="1_v6etd"]
-[ext_resource type="Script" uid="uid://bhjoynr4pj3mo" path="res://platforms/platform_anim_kickstart.gd" id="2_o2ld1"]
+[ext_resource type="Script" path="res://platforms/platform_anim_kickstart.gd" id="2_o2ld1"]
 [ext_resource type="Texture2D" uid="uid://dardbt58vwfu0" path="res://platforms/platform_rusty.png" id="3_2oqa2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vkqjc"]
